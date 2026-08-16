@@ -12,3 +12,4 @@ wheels/
 
 #login data 
 game_state.jsonl
+game_events.jsonl
