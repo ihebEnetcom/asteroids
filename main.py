@@ -24,7 +24,7 @@ def main():
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers= (updatable)
-    Shot.containers = (updatable,drawable)
+    Shot.containers = (updatable,drawable,bullets)
 
     player=Player(x=SCREEN_WIDTH/2,y=SCREEN_HEIGHT/2,radius=PLAYER_RADIUS)
     astroid_field = AsteroidField()
@@ -48,6 +48,9 @@ def main():
                 log_event("player_hit")
                 print('game over')
                 sys.exit()
+            for bullet in bullets:
+                if astroid.collides_with(bullet):
+                    astroid.kill()
         
             
         
