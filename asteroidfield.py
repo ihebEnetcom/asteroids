@@ -43,6 +43,14 @@ class AsteroidField(pygame.sprite.Sprite):
     ) -> None:
         asteroid = Asteroid(position.x, position.y, radius)
         asteroid.velocity = velocity
+        
+    def split(self,astroid:Asteroid)->None:
+            if (astroid.getKind()==1):
+                astroid.kill()
+            else:
+                self.spawn(ASTEROID_MIN_RADIUS * (astroid.getKind()-1),astroid.position,astroid.velocity.rotate(30))
+                self.spawn(ASTEROID_MIN_RADIUS * (astroid.getKind()-1),astroid.position,astroid.velocity.rotate(-30))
+                astroid.kill()
 
     def update(self, dt: float) -> None:
         self.spawn_timer += dt

@@ -50,7 +50,8 @@ def main():
                 sys.exit()
             for bullet in bullets:
                 if astroid.collides_with(bullet):
-                    astroid.kill()
+                    bullet.kill()
+                    astroid_field.split(astroid)
         
             
         

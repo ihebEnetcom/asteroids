@@ -27,7 +27,6 @@ class Player (CircleShape):
 
     def shot(self):
         current_time = pygame.time.get_ticks()
-        print(current_time  )
         if current_time - self.last_shot_time > SHOOT_COLLDOWN *1000:
             bullet = Shot(self.position.x,self.position.y,pygame.math.Vector2((0,1)).rotate(self.rotation))
             self.last_shot_time= pygame.time.get_ticks()
